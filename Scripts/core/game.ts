@@ -23,6 +23,7 @@
     { id: "level2", src: "Assets/images/level2.jpg" },
     { id: "level3", src: "Assets/images/level3.jpg" },
     { id: "Home", src: "Assets/images/Home.gif" },
+    { id: "PlayAgain", src: "Assets/images/play_again.gif" },
     { id: "island", src: "Assets/images/friend.png" },
     { id: "cloud", src: "Assets/images/boss1.png" },
     { id: "yay", src: "Assets/audio/life.wav" },
@@ -33,7 +34,7 @@
   function Init(): void {
     console.log(
       `%c Assets Loading...`,
-      "font-weight:bold; font-size:20px; color: green;" 
+      "font-weight:bold; font-size:20px; color: green;"
     );
     AssetManager = new createjs.LoadQueue();
     managers.Game.AssetManager = AssetManager; // set as single instance of the LoadQueue object
@@ -43,11 +44,11 @@
 
     document.onkeydown = function(event) {
       managers.keyboard.keycode = event.keyCode;
-  }
+    };
 
-  document.onkeyup = function(event) {
-    managers.keyboard.keycode = -1;
-  }
+    document.onkeyup = function(event) {
+      managers.keyboard.keycode = -1;
+    };
   }
 
   function Start(): void {
@@ -125,5 +126,3 @@
 
   window.addEventListener("load", Init);
 })();
-
-

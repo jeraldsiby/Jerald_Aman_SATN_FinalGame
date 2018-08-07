@@ -22,6 +22,7 @@
         { id: "level2", src: "Assets/images/level2.jpg" },
         { id: "level3", src: "Assets/images/level3.jpg" },
         { id: "Home", src: "Assets/images/Home.gif" },
+        { id: "PlayAgain", src: "Assets/images/play_again.gif" },
         { id: "island", src: "Assets/images/friend.png" },
         { id: "cloud", src: "Assets/images/boss1.png" },
         { id: "yay", src: "Assets/audio/life.wav" },

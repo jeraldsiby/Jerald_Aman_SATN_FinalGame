@@ -3,6 +3,7 @@ namespace scenes {
     // member variables
     private _endLabel: objects.Label;
     private _backButton: objects.Button;
+    private _play_again: objects.Button;
     private _ocean: objects.Ocean;
     private scoreDefined: Number;
 
@@ -26,10 +27,11 @@ namespace scenes {
         "Consolas",
         "#ffffff",
         320,
-        300,
+        200,
         true
       );
-      this._backButton = new objects.Button("Home", 320, 400, true);
+      this._backButton = new objects.Button("Home", 320, 300, true);
+      this._play_again = new objects.Button("PlayAgain", 320, 400, true);
 
       this.Main();
     }
@@ -52,12 +54,22 @@ namespace scenes {
       //this.addChild(managers.Game.ScoreBoard.HighScoreLabel);
 
       this.addChild(this._backButton);
+      this.addChild(this._play_again);
 
       this._backButton.on(
         "click",
         function() {
           managers.Game.ScoreBoard.Reset();
           managers.Game.CurrentState = config.Scene.START;
+        },
+        this
+      );
+
+      this._play_again.on(
+        "click",
+        function() {
+          managers.Game.ScoreBoard.Reset();
+          managers.Game.CurrentState = config.Scene.MENU;
         },
         this
       );
