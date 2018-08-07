@@ -131,6 +131,10 @@
       case config.Scene.PLAY2:
         CurrentScene = new scenes.Play2();
         break;
+
+      case config.Scene.PLAY3:
+        CurrentScene = new scenes.Play2();
+        break;
     }
 
     managers.Game.CurrentScene = CurrentScene;

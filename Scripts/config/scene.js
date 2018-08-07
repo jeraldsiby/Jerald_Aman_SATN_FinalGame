@@ -9,6 +9,7 @@ var config;
         Scene[Scene["MENU"] = 4] = "MENU";
         Scene[Scene["PLAY1"] = 5] = "PLAY1";
         Scene[Scene["PLAY2"] = 6] = "PLAY2";
+        Scene[Scene["PLAY3"] = 7] = "PLAY3";
     })(Scene = config.Scene || (config.Scene = {}));
 })(config || (config = {}));
 //# sourceMappingURL=scene.js.map

@@ -6,6 +6,7 @@ namespace config {
     HELP,
     MENU,
     PLAY1,
-    PLAY2
+    PLAY2,
+    PLAY3
   }
 }
