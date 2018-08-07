@@ -4,6 +4,7 @@ namespace scenes {
     private _headerLabel: objects.Label;
     private _bodyLabel: objects.Label;
     private _backButton: objects.Button;
+    private _controls: objects.Button;
     private _ocean: objects.Ocean;
 
     // constructors
@@ -42,15 +43,21 @@ namespace scenes {
           "\n" +
           "\n" +
           "5. Fight boss in Level 3" +
+          "\n" +
+          "\n" +
+          "6. Use keyboard controls as shown below" +
+          "\n" +
+          "\n" +
           "\n",
         "20px",
         "Consolas",
         "#ffffff",
         320,
-        150,
+        180,
         true
       );
-      this._backButton = new objects.Button("BackButton", 320, 360, true);
+      this._backButton = new objects.Button("BackButton", 320, 400, true);
+      this._controls = new objects.Button("controls", 320, 300, true);
       this.Main();
     }
 
@@ -71,6 +78,7 @@ namespace scenes {
 
       this.addChild(this._bodyLabel);
       this.addChild(this._backButton);
+      this.addChild(this._controls);
 
       this._backButton.on(
         "click",

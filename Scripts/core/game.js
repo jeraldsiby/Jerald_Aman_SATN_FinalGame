@@ -25,6 +25,7 @@
         { id: "PlayAgain", src: "Assets/images/play_again.gif" },
         { id: "island", src: "Assets/images/friend.png" },
         { id: "cloud", src: "Assets/images/boss1.png" },
+        { id: "controls", src: "Assets/images/controls.png" },
         { id: "yay", src: "Assets/audio/life.wav" },
         { id: "thunder", src: "Assets/audio/explosion.mp3" },
         { id: "engine", src: "Assets/audio/engine.ogg" }

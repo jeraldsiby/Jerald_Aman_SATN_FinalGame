@@ -36,8 +36,14 @@ var scenes;
                 "\n" +
                 "\n" +
                 "5. Fight boss in Level 3" +
-                "\n", "20px", "Consolas", "#ffffff", 320, 150, true);
-            this._backButton = new objects.Button("BackButton", 320, 360, true);
+                "\n" +
+                "\n" +
+                "6. Use keyboard controls as shown below" +
+                "\n" +
+                "\n" +
+                "\n", "20px", "Consolas", "#ffffff", 320, 180, true);
+            this._backButton = new objects.Button("BackButton", 320, 400, true);
+            this._controls = new objects.Button("controls", 320, 300, true);
             this.Main();
         };
         Help.prototype.Update = function () {
@@ -53,6 +59,7 @@ var scenes;
             this.addChild(this._headerLabel);
             this.addChild(this._bodyLabel);
             this.addChild(this._backButton);
+            this.addChild(this._controls);
             this._backButton.on("click", function () {
                 managers.Game.ScoreBoard.Reset();
                 managers.Game.CurrentState = config.Scene.START;
