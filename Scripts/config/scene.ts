@@ -4,6 +4,8 @@ namespace config {
     PLAY,
     END,
     HELP,
-    MENU
+    MENU,
+    PLAY1,
+    PLAY2
   }
 }

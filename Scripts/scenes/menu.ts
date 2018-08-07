@@ -6,6 +6,7 @@ namespace scenes {
     private _level3: objects.Button;
     private _backButton: objects.Button;
     private _ocean: objects.Ocean;
+    private _playButton: objects.Button;
 
     // constructors
     constructor() {
@@ -24,6 +25,7 @@ namespace scenes {
       this._level2 = new objects.Button("level2", 300, 260, true);
       this._level3 = new objects.Button("level3", 430, 260, true);
       this._backButton = new objects.Button("BackButton", 300, 350, true);
+      this._playButton = new objects.Button("play", 310, 150, true);
 
       this.Main();
     }
@@ -46,6 +48,8 @@ namespace scenes {
       this.addChild(this._level2);
       this.addChild(this._level3);
       this.addChild(this._backButton);
+
+      this.addChild(this._playButton);
 
       this._level1.on(
         "click",
@@ -77,6 +81,14 @@ namespace scenes {
         function() {
           managers.Game.ScoreBoard.Reset();
           managers.Game.CurrentState = config.Scene.START;
+        },
+        this
+      );
+      this._playButton.on(
+        "click",
+        function() {
+          managers.Game.ScoreBoard.Reset();
+          managers.Game.CurrentState = config.Scene.PLAY1;
         },
         this
       );

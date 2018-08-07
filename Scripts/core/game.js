@@ -21,11 +21,15 @@
         { id: "level1", src: "Assets/images/level1.jpg" },
         { id: "level2", src: "Assets/images/level2.jpg" },
         { id: "level3", src: "Assets/images/level3.jpg" },
+        { id: "level1N", src: "Assets/images/level1N.png" },
+        { id: "level2N", src: "Assets/images/level2N.png" },
+        { id: "level3N", src: "Assets/images/level3N.png" },
         { id: "Home", src: "Assets/images/Home.gif" },
         { id: "PlayAgain", src: "Assets/images/play_again.gif" },
         { id: "island", src: "Assets/images/friend.png" },
         { id: "cloud", src: "Assets/images/boss1.png" },
         { id: "controls", src: "Assets/images/controls.png" },
+        { id: "play", src: "Assets/images/play.png" },
         { id: "yay", src: "Assets/audio/life.wav" },
         { id: "thunder", src: "Assets/audio/explosion.mp3" },
         { id: "engine", src: "Assets/audio/engine.ogg" }
@@ -89,6 +93,12 @@
                 break;
             case config.Scene.MENU:
                 CurrentScene = new scenes.Menu();
+                break;
+            case config.Scene.PLAY1:
+                CurrentScene = new scenes.Play1();
+                break;
+            case config.Scene.PLAY2:
+                CurrentScene = new scenes.Play2();
                 break;
         }
         managers.Game.CurrentScene = CurrentScene;

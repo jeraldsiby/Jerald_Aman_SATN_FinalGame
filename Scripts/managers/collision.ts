@@ -18,7 +18,7 @@ namespace managers {
               let yaySound = createjs.Sound.play("yay");
               yaySound.volume = 0.2;
               managers.Game.ScoreBoard.Score += 100;
-              managers.Game.ScoreBoard.Lives += Math.random()*10 < 2 ? 1 : 0;
+              managers.Game.ScoreBoard.Lives += Math.random() * 10 < 2 ? 1 : 0;
               break;
 
             case "cloud":
