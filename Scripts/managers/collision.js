@@ -22,6 +22,11 @@ var managers;
                             thunderSound.volume = 0.2;
                             managers.Game.ScoreBoard.Lives--;
                             break;
+                        case "boss":
+                            var thunderSound1 = createjs.Sound.play("thunder");
+                            thunderSound1.volume = 0.2;
+                            managers.Game.ScoreBoard.Lives--;
+                            break;
                     }
                 }
             }

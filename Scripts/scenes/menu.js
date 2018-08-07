@@ -15,6 +15,7 @@ var scenes;
         // constructors
         function Menu() {
             var _this = _super.call(this) || this;
+            managers.Game.FinalLevel = false;
             _this.Start();
             return _this;
         }

@@ -65,7 +65,7 @@ namespace scenes {
     }
 
     public Main(): void {
-      console.log(`Starting - PLAY2 SCENE`);
+      console.log(`Starting - PLAY3 SCENE`);
 
       // adding the ocean to the scene
       this.addChild(this._ocean);

@@ -56,21 +56,21 @@ namespace managers {
       this._score = newValue;
       this.ScoreLabel.text = "Score: " + this._score;
       if (
-        this._score == 300 &&
+        this._score == 500 &&
         managers.Game.CurrentState == config.Scene.PLAY1
       ) {
         this.HighScore = this._score;
         managers.Game.CurrentState = config.Scene.PLAY2;
       }
       if (
-        this._score == 500 &&
+        this._score == 800 &&
         managers.Game.CurrentState == config.Scene.PLAY2
       ) {
         this.HighScore = this._score;
         managers.Game.CurrentState = config.Scene.PLAY3;
       }
       if (
-        this._score == 700 &&
+        this._score == 1500 &&
         managers.Game.CurrentState == config.Scene.PLAY3
       ) {
         this.HighScore = this._score;

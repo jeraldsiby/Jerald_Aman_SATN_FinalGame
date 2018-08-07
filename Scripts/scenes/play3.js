@@ -57,7 +57,7 @@ var scenes;
             this.removeAllChildren();
         };
         Play3.prototype.Main = function () {
-            console.log("Starting - PLAY2 SCENE");
+            console.log("Starting - PLAY3 SCENE");
             // adding the ocean to the scene
             this.addChild(this._ocean);
             // adding the island to the scene

@@ -11,7 +11,7 @@ namespace scenes {
     // constructors
     constructor() {
       super();
-
+      managers.Game.FinalLevel = false;
       this.Start();
     }
 
