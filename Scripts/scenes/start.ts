@@ -21,7 +21,7 @@ namespace scenes {
       this._ocean = new objects.Ocean();
 
       this._welcomeLabel = new objects.Label(
-        "Jerald 300983572",
+        "Group - SATN",
         "60px",
         "Consolas",
         "#ffffff",
