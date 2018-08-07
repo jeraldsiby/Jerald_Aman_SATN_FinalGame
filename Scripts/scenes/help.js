@@ -23,19 +23,19 @@ var scenes;
         Help.prototype.Start = function () {
             this._ocean = new objects.Ocean();
             this._headerLabel = new objects.Label("Instructions", "60px", "Consolas", "#ffffff", 320, 40, true);
-            this._bodyLabel = new objects.Label("1. Movement of fighter pilot is done using mouse." +
+            this._bodyLabel = new objects.Label("1. Movement of space ship is done using keyboard." +
                 "\n" +
                 "\n" +
-                "2. Go over the alien objects to gain points." +
+                "2. Go over the alien objects to gain points and lives" +
                 "\n" +
                 "\n" +
                 "3. Avoid enemy collissions to keep up the lives." +
                 "\n" +
                 "\n" +
-                "4. Shoot down the enemies to get more points." +
+                "4. Difficulty increases as level changes." +
                 "\n" +
                 "\n" +
-                "5. Difficulty increases as level changes." +
+                "5. Fight boss in Level 3" +
                 "\n", "20px", "Consolas", "#ffffff", 320, 150, true);
             this._backButton = new objects.Button("BackButton", 320, 360, true);
             this.Main();
