@@ -7,7 +7,7 @@ namespace objects {
     constructor() {
       super("plane");
 
-      this.Start(); 
+      this.Start();
     }
 
     // private methods
@@ -41,16 +41,13 @@ namespace objects {
     }
 
     public Update(): void {
-      if(managers.keyboard.keycode == 39){
+      if (managers.keyboard.keycode == 39) {
         this.x += 10;
-      }
-      else if(managers.keyboard.keycode == 37){
+      } else if (managers.keyboard.keycode == 37) {
         this.x -= 10;
-      }
-      else if(managers.keyboard.keycode == 38){
+      } else if (managers.keyboard.keycode == 38) {
         this.y -= 10;
-      }
-      else if(managers.keyboard.keycode == 40){
+      } else if (managers.keyboard.keycode == 40) {
         this.y += 10;
       }
       //this.x = managers.Game.Stage.mouseX;

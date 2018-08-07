@@ -43,7 +43,7 @@ var scenes;
                 this._cloudNum = 3;
             }
             else if (this.Level == 3) {
-                this._cloudNum = 6;
+                this._cloudNum = 5;
             }
             this._buildClouds();
             this.Main();
