@@ -28,6 +28,7 @@
         { id: "PlayAgain", src: "Assets/images/play_again.gif" },
         { id: "island", src: "Assets/images/friend.png" },
         { id: "cloud", src: "Assets/images/boss1.png" },
+        { id: "boss", src: "Assets/images/boss.png" },
         { id: "controls", src: "Assets/images/controls.png" },
         { id: "play", src: "Assets/images/play.png" },
         { id: "yay", src: "Assets/audio/life.wav" },
@@ -101,7 +102,7 @@
                 CurrentScene = new scenes.Play2();
                 break;
             case config.Scene.PLAY3:
-                CurrentScene = new scenes.Play2();
+                CurrentScene = new scenes.Play3();
                 break;
         }
         managers.Game.CurrentScene = CurrentScene;

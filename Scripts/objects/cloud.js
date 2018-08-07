@@ -17,7 +17,13 @@ var objects;
          * @memberof Cloud
          */
         function Cloud() {
-            var _this = _super.call(this, "cloud") || this;
+            var _this = this;
+            if (managers.Game.FinalLevel == true) {
+                _this = _super.call(this, "boss") || this;
+            }
+            else {
+                _this = _super.call(this, "cloud") || this;
+            }
             _this.Start();
             return _this;
         }
@@ -40,10 +46,10 @@ var objects;
             this._checkBounds();
         };
         Cloud.prototype.Reset = function () {
-            this._verticalSpeed = Math.floor((Math.random() * 5) + 5); // between 5 and 10 ppf
-            this._horizontalSpeed = Math.floor((Math.random() * 4) - 2); // between -2 and 2 ppf
+            this._verticalSpeed = Math.floor(Math.random() * 5 + 5); // between 5 and 10 ppf
+            this._horizontalSpeed = Math.floor(Math.random() * 4 - 2); // between -2 and 2 ppf
             this.y = -this.height;
-            this.x = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
+            this.x = Math.floor(Math.random() * (config.Screen.WIDTH - this.width) + this.halfWidth);
         };
         return Cloud;
     }(objects.GameObject));

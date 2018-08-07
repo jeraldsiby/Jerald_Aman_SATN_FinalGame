@@ -7,5 +7,6 @@ namespace managers {
     public static ScoreBoard: managers.ScoreBoard;
     public static Level: Number;
     public static Score: Number;
+    public static FinalLevel: boolean;
   }
 }
