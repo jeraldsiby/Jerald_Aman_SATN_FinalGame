@@ -7,6 +7,7 @@ namespace scenes {
     private _ocean: objects.Ocean;
     private scoreDefined: Number;
     private _gameOver: objects.Label;
+    private _gameOver1: objects.Label;
 
     // constructors
     constructor() {
@@ -23,7 +24,16 @@ namespace scenes {
 
       this.scoreDefined = managers.Game.Score;
       this._gameOver = new objects.Label(
-        "GAME OVER " + "\n",
+        "GAME OVER : YOU WIN " + "\n",
+        "40px",
+        "Consolas",
+        "#ffffff",
+        320,
+        140,
+        true
+      );
+      this._gameOver1 = new objects.Label(
+        "GAME OVER : YOU LOST " + "\n",
         "40px",
         "Consolas",
         "#ffffff",
@@ -59,7 +69,12 @@ namespace scenes {
     public Main(): void {
       console.log(`Starting - END SCENE`);
       this.addChild(this._ocean);
-      this.addChild(this._gameOver);
+      if (this.scoreDefined == 1700) {
+        this.addChild(this._gameOver);
+      } else {
+        this.addChild(this._gameOver1);
+      }
+
       this.addChild(this._endLabel);
 
       //this.addChild(managers.Game.ScoreBoard.HighScoreLabel);

@@ -27,6 +27,7 @@ var scenes;
         };
         // public methods
         Play2.prototype.Start = function () {
+            this.levelLablel = new objects.Label("LEVEL - 2", "40px", "Consolas", "#ffffff", 280, 70, true);
             this.engineSound = createjs.Sound.play("engine");
             this.engineSound.loop = -1;
             this.engineSound.volume = 0.1;
@@ -68,6 +69,7 @@ var scenes;
                 var cloud = _a[_i];
                 this.addChild(cloud);
             }
+            this.addChild(this.levelLablel);
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
         };

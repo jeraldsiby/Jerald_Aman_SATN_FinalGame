@@ -23,7 +23,8 @@ var scenes;
         End.prototype.Start = function () {
             this._ocean = new objects.Ocean();
             this.scoreDefined = managers.Game.Score;
-            this._gameOver = new objects.Label("GAME OVER " + "\n", "40px", "Consolas", "#ffffff", 320, 140, true);
+            this._gameOver = new objects.Label("GAME OVER : YOU WIN " + "\n", "40px", "Consolas", "#ffffff", 320, 140, true);
+            this._gameOver1 = new objects.Label("GAME OVER : YOU LOST " + "\n", "40px", "Consolas", "#ffffff", 320, 140, true);
             this._endLabel = new objects.Label("High Score: " + this.scoreDefined.toString() + "\n", "40px", "Consolas", "#ffffff", 320, 200, true);
             this._backButton = new objects.Button("Home", 320, 300, true);
             this._play_again = new objects.Button("PlayAgain", 320, 400, true);
@@ -39,7 +40,12 @@ var scenes;
         End.prototype.Main = function () {
             console.log("Starting - END SCENE");
             this.addChild(this._ocean);
-            this.addChild(this._gameOver);
+            if (this.scoreDefined == 1700) {
+                this.addChild(this._gameOver);
+            }
+            else {
+                this.addChild(this._gameOver1);
+            }
             this.addChild(this._endLabel);
             //this.addChild(managers.Game.ScoreBoard.HighScoreLabel);
             this.addChild(this._backButton);

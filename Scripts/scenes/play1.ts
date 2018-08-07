@@ -7,6 +7,7 @@ namespace scenes {
     private _clouds: objects.Cloud[];
     private _cloudNum: number;
     private Level: Number;
+    private levelLablel: objects.Label;
 
     public engineSound: createjs.AbstractSoundInstance;
 
@@ -27,6 +28,16 @@ namespace scenes {
 
     // public methods
     public Start(): void {
+      this.levelLablel = new objects.Label(
+        "LEVEL - 1",
+        "40px",
+        "Consolas",
+        "#ffffff",
+        280,
+        70,
+        true
+      );
+
       this.engineSound = createjs.Sound.play("engine");
       this.engineSound.loop = -1;
       this.engineSound.volume = 0.1;
@@ -75,7 +86,7 @@ namespace scenes {
 
       // adding the plane to the scene
       this.addChild(this._plane);
-
+      this.addChild(this.levelLablel);
       // adding the cloud to the scene
       for (const cloud of this._clouds) {
         this.addChild(cloud);

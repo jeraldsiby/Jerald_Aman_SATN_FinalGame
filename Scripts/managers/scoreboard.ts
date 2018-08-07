@@ -63,14 +63,14 @@ namespace managers {
         managers.Game.CurrentState = config.Scene.PLAY2;
       }
       if (
-        this._score == 800 &&
+        this._score == 1000 &&
         managers.Game.CurrentState == config.Scene.PLAY2
       ) {
         this.HighScore = this._score;
         managers.Game.CurrentState = config.Scene.PLAY3;
       }
       if (
-        this._score == 1500 &&
+        this._score == 1700 &&
         managers.Game.CurrentState == config.Scene.PLAY3
       ) {
         this.HighScore = this._score;

@@ -27,6 +27,7 @@ var scenes;
         };
         // public methods
         Play1.prototype.Start = function () {
+            this.levelLablel = new objects.Label("LEVEL - 1", "40px", "Consolas", "#ffffff", 280, 70, true);
             this.engineSound = createjs.Sound.play("engine");
             this.engineSound.loop = -1;
             this.engineSound.volume = 0.1;
@@ -63,6 +64,7 @@ var scenes;
             this.addChild(this._island);
             // adding the plane to the scene
             this.addChild(this._plane);
+            this.addChild(this.levelLablel);
             // adding the cloud to the scene
             for (var _i = 0, _a = this._clouds; _i < _a.length; _i++) {
                 var cloud = _a[_i];

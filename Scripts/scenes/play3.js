@@ -28,6 +28,7 @@ var scenes;
         };
         // public methods
         Play3.prototype.Start = function () {
+            this.levelLablel = new objects.Label("LEVEL - 3", "40px", "Consolas", "#ffffff", 280, 70, true);
             this.engineSound = createjs.Sound.play("engine");
             this.engineSound.loop = -1;
             this.engineSound.volume = 0.1;
@@ -37,7 +38,7 @@ var scenes;
             // creates an empty array of type Cloud
             this._clouds = new Array();
             this.Level = managers.Game.Level;
-            this._cloudNum = 3;
+            this._cloudNum = 5;
             this._buildClouds();
             this.Main();
         };
@@ -69,6 +70,7 @@ var scenes;
                 var cloud = _a[_i];
                 this.addChild(cloud);
             }
+            this.addChild(this.levelLablel);
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
         };
