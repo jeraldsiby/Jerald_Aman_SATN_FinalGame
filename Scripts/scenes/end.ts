@@ -22,6 +22,7 @@ namespace scenes {
     public Start(): void {
       this._space = new objects.Space();
 
+      //Game Over Label
       this.scoreDefined = managers.Game.ScoreBoard.Score;
       if(this.scoreDefined >= 20000){
         this._gameOver1 = new objects.Label(
