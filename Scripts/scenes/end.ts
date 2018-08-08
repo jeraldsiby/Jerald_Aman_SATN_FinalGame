@@ -22,7 +22,7 @@ namespace scenes {
     public Start(): void {
       this._space = new objects.Space();
 
-      //Game Over Label
+      //Game Over Label1
       this.scoreDefined = managers.Game.ScoreBoard.Score;
       if(this.scoreDefined >= 20000){
         this._gameOver1 = new objects.Label(
@@ -74,13 +74,8 @@ namespace scenes {
 
     public Main(): void {
       console.log(`Starting - END SCENE`);
-<<<<<<< HEAD
       this.addChild(this._space);
-      if (this.scoreDefined == 1700) {
-=======
-      this.addChild(this._ocean);
       if (this.scoreDefined == 9000) {
->>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
         this.addChild(this._gameOver);
       } else {
         this.addChild(this._gameOver1);
