@@ -18,7 +18,6 @@ namespace objects {
       this.Start();
     }
 
-<<<<<<< HEAD
     // private methods
     private _checkBounds(x: number, y: number): void {
       // check bottom boundary
@@ -42,10 +41,6 @@ namespace objects {
       this.x += this._horizontalSpeed;
 
       console.log(`x, y: ${this.x}, ${this.y}`);
-=======
-    //start function
-    public Start(): void {}
->>>>>>> 918979732cd329b53bdbf34af282f0129f534ab2
 
       this._checkBounds(x, y);
     }
