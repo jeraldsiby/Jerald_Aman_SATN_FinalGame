@@ -3,6 +3,16 @@ var managers;
     var Collision = /** @class */ (function () {
         function Collision() {
         }
+        Collision.checkBulletEnemy = function (bullet, enemy) {
+            var P1 = new math.Vec2(bullet.x, bullet.y);
+            var P2 = new math.Vec2(enemy.x, enemy.y);
+            if (math.Vec2.Distance(P1, P2) <
+                bullet.halfHeight + enemy.halfHeight) {
+                bullet.y = -10;
+                enemy.y = -10;
+                managers.Game.ScoreBoard.Score += 100;
+            }
+        };
         Collision.check = function (object1, object2) {
             var P1 = new math.Vec2(object1.x, object1.y);
             var P2 = new math.Vec2(object2.x, object2.y);

@@ -34,6 +34,7 @@
     { id: "play", src: "Assets/images/play.png" },
     { id: "yay", src: "Assets/audio/life.wav" },
     { id: "thunder", src: "Assets/audio/explosion.mp3" },
+    { id: "bullet", src: "Assets/images/bulletlong.png" },
     { id: "engine", src: "Assets/audio/engine.ogg" }
   ];
 

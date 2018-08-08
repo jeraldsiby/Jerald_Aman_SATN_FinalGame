@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -39,6 +42,7 @@ var scenes;
             this.Level = managers.Game.Level;
             this._cloudNum = 3;
             this._buildClouds();
+            this._bullet = new objects.Bullet(this._plane.x, this._plane.y);
             this.Main();
         };
         Play2.prototype.Update = function () {
@@ -50,6 +54,10 @@ var scenes;
             this._clouds.forEach(function (cloud) {
                 cloud.Update();
                 managers.Collision.check(_this._plane, cloud);
+            });
+            this._bullet.UpdateBullet(this._plane.x, this._plane.y);
+            this._clouds.forEach(function (enemy) {
+                managers.Collision.checkBulletEnemy(_this._bullet, enemy);
             });
         };
         Play2.prototype.Reset = function () { };
@@ -72,6 +80,7 @@ var scenes;
             this.addChild(this.levelLablel);
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
+            this.addChild(this._bullet);
         };
         return Play2;
     }(objects.Scene));

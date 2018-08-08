@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -12,15 +15,45 @@ var objects;
 (function (objects) {
     var Bullet = /** @class */ (function (_super) {
         __extends(Bullet, _super);
+        /**
+         * Creates an instance of Cloud.
+         * @memberof Bullet
+         */
         //constructor
-        function Bullet() {
+        function Bullet(x, y) {
             var _this = _super.call(this, "bullet") || this;
+            _this._initX = x;
+            _this._initY = y;
             _this.Start();
             return _this;
         }
-        Bullet.prototype.Start = function () { };
-        Bullet.prototype.Update = function () { };
-        Bullet.prototype.Reset = function () { };
+        // private methods
+        Bullet.prototype._checkBounds = function (x, y) {
+            // check bottom boundary
+            if (this.y > config.Screen.HEIGHT + this.halfHeight || this.y < 0) {
+                this._initX = x;
+                this._initY = y;
+                this.Reset();
+            }
+        };
+        // public methods
+        Bullet.prototype.Start = function () {
+            this.regX = this.halfWidth;
+            this.regY = this.halfHeight;
+            this.Reset();
+        };
+        Bullet.prototype.UpdateBullet = function (x, y) {
+            this.y -= this._verticalSpeed;
+            this.x += this._horizontalSpeed;
+            console.log("x, y: " + this.x + ", " + this.y);
+            this._checkBounds(x, y);
+        };
+        Bullet.prototype.Reset = function () {
+            this._verticalSpeed = 15; // between 5 and 15 ppf
+            this._horizontalSpeed = 0; // between -8 and 8 ppf
+            this.y = this._initY;
+            this.x = this._initX;
+        };
         return Bullet;
     }(objects.GameObject));
     objects.Bullet = Bullet;

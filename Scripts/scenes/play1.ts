@@ -8,6 +8,7 @@ namespace scenes {
     private _cloudNum: number;
     private Level: Number;
     private levelLablel: objects.Label;
+    private _bullet: objects.Bullet;
 
     public engineSound: createjs.AbstractSoundInstance;
 
@@ -53,6 +54,8 @@ namespace scenes {
 
       this._buildClouds();
 
+      this._bullet = new objects.Bullet(this._plane.x, this._plane.y);
+
       this.Main();
     }
 
@@ -67,6 +70,13 @@ namespace scenes {
         cloud.Update();
         managers.Collision.check(this._plane, cloud);
       });
+
+      this._bullet.UpdateBullet(this._plane.x, this._plane.y);
+
+      this._clouds.forEach(enemy => {
+        managers.Collision.checkBulletEnemy(this._bullet, enemy);
+      });
+
     }
 
     public Reset(): void {}
@@ -94,6 +104,8 @@ namespace scenes {
 
       this.addChild(managers.Game.ScoreBoard.LivesLabel);
       this.addChild(managers.Game.ScoreBoard.ScoreLabel);
+
+      this.addChild(this._bullet);
     }
   }
 }
