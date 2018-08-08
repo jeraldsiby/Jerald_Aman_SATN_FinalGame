@@ -6,6 +6,7 @@ namespace objects {
       this.Start();
     }
 
+    //start function
     public Start(): void {}
 
     public Update(): void {}
