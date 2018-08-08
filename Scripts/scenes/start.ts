@@ -5,7 +5,7 @@ namespace scenes {
     private _startButton: objects.Button;
     private _helpButton: objects.Button;
     private _menuButton: objects.Button;
-    private _space: objects.Space;
+    private _ocean: objects.Ocean;
 
     // constructors
     constructor() {
@@ -18,16 +18,16 @@ namespace scenes {
 
     // public methods
     public Start(): void {
-      this._space = new objects.Space();
+      this._ocean = new objects.Ocean();
 
       //welcome label
       this._welcomeLabel = new objects.Label(
-        "Space Odyssey",
+        "Group - SATN",
         "60px",
-        "Limelight",
+        "Consolas",
         "#ffffff",
         320,
-        200,
+        240,
         true
       );
       this._menuButton = new objects.Button("MainMenu", 240, 340, true);
@@ -38,7 +38,7 @@ namespace scenes {
     }
 
     public Update(): void {
-      this._space.Update();
+      this._ocean.Update();
     }
 
     public Reset(): void {}
@@ -49,7 +49,7 @@ namespace scenes {
 
     public Main(): void {
       console.log(`Starting - START SCENE`);
-      this.addChild(this._space);
+      this.addChild(this._ocean);
 
       this.addChild(this._welcomeLabel);
       //this.addChild(this._startButton);

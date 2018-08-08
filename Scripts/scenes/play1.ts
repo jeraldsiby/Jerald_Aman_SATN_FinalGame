@@ -1,11 +1,11 @@
 namespace scenes {
   export class Play1 extends objects.Scene {
     // member variables
-    private _spaceship: objects.Spaceship;
-    private _space: objects.Space;
-    private _spacestation: objects.SpaceStation;
-    private _enemies: objects.Enemy[];
-    private _enemyNum: number;
+    private _plane: objects.Plane;
+    private _ocean: objects.Ocean;
+    private _island: objects.Island;
+    private _clouds: objects.Cloud[];
+    private _cloudNum: number;
     private Level: Number;
     private levelLablel: objects.Label;
     private _bullet: objects.Bullet;
@@ -21,9 +21,9 @@ namespace scenes {
 
     // private methods
     private _buildClouds(): void {
-      for (let count = 0; count < this._enemyNum; count++) {
-        this._enemies.push(new objects.Enemy());
-        //this._enemies[count] = new objects.Cloud();
+      for (let count = 0; count < this._cloudNum; count++) {
+        this._clouds.push(new objects.Cloud());
+        //this._clouds[count] = new objects.Cloud();
       }
     }
 
@@ -39,50 +39,36 @@ namespace scenes {
         true
       );
 
-      this.engineSound = createjs.Sound.play("background");
+      this.engineSound = createjs.Sound.play("engine");
       this.engineSound.loop = -1;
       this.engineSound.volume = 0.1;
 
-      this._spaceship = new objects.Spaceship();
-      this._space = new objects.Space();
-      this._spacestation = new objects.SpaceStation();
+      this._plane = new objects.Plane();
+      this._ocean = new objects.Ocean();
+      this._island = new objects.Island();
 
       // creates an empty array of type Cloud
-      this._enemies = new Array<objects.Enemy>();
+      this._clouds = new Array<objects.Cloud>();
       this.Level = managers.Game.Level;
-<<<<<<< HEAD
-      this._enemyNum = 1;
-
-      this._buildClouds();
-
-      this._bullet = new objects.Bullet(this._spaceship.x, this._spaceship.y);
-=======
       this._cloudNum = 2;
 
       this._buildClouds();
 
       this._bullet = new objects.Bullet(this._plane.x, this._plane.y);
->>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
 
       this.Main();
     }
 
     public Update(): void {
-      this._spaceship.Update();
-      this._space.Update();
-      this._spacestation.Update();
+      this._plane.Update();
+      this._ocean.Update();
+      this._island.Update();
 
-      managers.Collision.check(this._spaceship, this._spacestation);
+      managers.Collision.check(this._plane, this._island);
 
-      this._enemies.forEach(cloud => {
+      this._clouds.forEach(cloud => {
         cloud.Update();
-        managers.Collision.check(this._spaceship, cloud);
-      });
-
-      this._bullet.UpdateBullet(this._spaceship.x, this._spaceship.y);
-
-      this._enemies.forEach(enemy => {
-        managers.Collision.checkBulletEnemy(this._bullet, enemy);
+        managers.Collision.check(this._plane, cloud);
       });
 
       this._bullet.UpdateBullet(this._plane.x, this._plane.y);
@@ -102,16 +88,16 @@ namespace scenes {
       console.log(`Starting - PLAY1 SCENE`);
 
       // adding the ocean to the scene
-      this.addChild(this._space);
+      this.addChild(this._ocean);
 
       // adding the island to the scene
-      this.addChild(this._spacestation);
+      this.addChild(this._island);
 
       // adding the plane to the scene
-      this.addChild(this._spaceship);
+      this.addChild(this._plane);
       this.addChild(this.levelLablel);
       // adding the cloud to the scene
-      for (const cloud of this._enemies) {
+      for (const cloud of this._clouds) {
         this.addChild(cloud);
       }
 

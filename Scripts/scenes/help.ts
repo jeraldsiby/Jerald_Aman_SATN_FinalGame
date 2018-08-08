@@ -5,7 +5,7 @@ namespace scenes {
     private _bodyLabel: objects.Label;
     private _backButton: objects.Button;
     private _controls: objects.Button;
-    private _space: objects.Space;
+    private _ocean: objects.Ocean;
 
     // constructors
     constructor() {
@@ -18,7 +18,7 @@ namespace scenes {
 
     // public methods
     public Start(): void {
-      this._space = new objects.Space();
+      this._ocean = new objects.Ocean();
 
       this._headerLabel = new objects.Label(
         "Instructions",
@@ -65,7 +65,7 @@ namespace scenes {
     }
 
     public Update(): void {
-      this._space.Update();
+      this._ocean.Update();
     }
 
     public Reset(): void {}
@@ -76,7 +76,7 @@ namespace scenes {
 
     public Main(): void {
       console.log(`Starting - HELP SCENE`);
-      this.addChild(this._space);
+      this.addChild(this._ocean);
       this.addChild(this._headerLabel);
 
       this.addChild(this._bodyLabel);

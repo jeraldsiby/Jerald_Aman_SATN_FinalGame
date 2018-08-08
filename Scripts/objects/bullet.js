@@ -1,10 +1,7 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -22,10 +19,6 @@ var objects;
         //constructor
         function Bullet(x, y) {
             var _this = _super.call(this, "bullet") || this;
-<<<<<<< HEAD
-            _this._horizontalSpeed = 0;
-=======
->>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
             _this._initX = x;
             _this._initY = y;
             _this.Start();
@@ -44,10 +37,6 @@ var objects;
         Bullet.prototype.Start = function () {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
-<<<<<<< HEAD
-            this._verticalSpeed = 8; // between 5 and 15 ppf
-=======
->>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
             this.Reset();
         };
         Bullet.prototype.UpdateBullet = function (x, y) {
@@ -57,11 +46,8 @@ var objects;
             this._checkBounds(x, y);
         };
         Bullet.prototype.Reset = function () {
-<<<<<<< HEAD
-=======
             this._verticalSpeed = 15; // between 5 and 15 ppf
             this._horizontalSpeed = 0; // between -8 and 8 ppf
->>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
             this.y = this._initY;
             this.x = this._initX;
         };

@@ -1,10 +1,7 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -24,7 +21,7 @@ var scenes;
         // private methods
         // public methods
         Help.prototype.Start = function () {
-            this._space = new objects.Space();
+            this._ocean = new objects.Ocean();
             this._headerLabel = new objects.Label("Instructions", "60px", "Consolas", "#ffffff", 320, 40, true);
             this._bodyLabel = new objects.Label("1. Movement of space ship is done using keyboard." +
                 "\n" +
@@ -53,7 +50,7 @@ var scenes;
             this.Main();
         };
         Help.prototype.Update = function () {
-            this._space.Update();
+            this._ocean.Update();
         };
         Help.prototype.Reset = function () { };
         Help.prototype.Destroy = function () {
@@ -61,7 +58,7 @@ var scenes;
         };
         Help.prototype.Main = function () {
             console.log("Starting - HELP SCENE");
-            this.addChild(this._space);
+            this.addChild(this._ocean);
             this.addChild(this._headerLabel);
             this.addChild(this._bodyLabel);
             this.addChild(this._backButton);

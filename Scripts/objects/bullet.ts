@@ -2,11 +2,7 @@ namespace objects {
   export class Bullet extends objects.GameObject {
     // member variables
     private _verticalSpeed: number;
-<<<<<<< HEAD
-    public _horizontalSpeed: number = 0;
-=======
     private _horizontalSpeed: number;
->>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
     private _initX: number;
     private _initY: number;
 
@@ -36,23 +32,6 @@ namespace objects {
     public Start(): void {
       this.regX = this.halfWidth;
       this.regY = this.halfHeight;
-<<<<<<< HEAD
-      this._verticalSpeed = 8; // between 5 and 15 ppf
-
-      this.Reset();
-    }
-
-    public UpdateBullet(x: number, y: number): void {
-      this.y -= this._verticalSpeed;
-      this.x += this._horizontalSpeed;
-
-      console.log(`x, y: ${this.x}, ${this.y}`);
-
-      this._checkBounds(x, y);
-    }
-
-    public Reset(): void {
-=======
 
       this.Reset();
     }
@@ -69,10 +48,8 @@ namespace objects {
     public Reset(): void {
       this._verticalSpeed = 15; // between 5 and 15 ppf
       this._horizontalSpeed = 0; // between -8 and 8 ppf
->>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
       this.y = this._initY;
       this.x = this._initX;
     }
   }
 }
-

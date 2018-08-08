@@ -1,10 +1,7 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -24,21 +21,17 @@ var scenes;
         // private methods
         // public methods
         End.prototype.Start = function () {
-            this._space = new objects.Space();
-            this.scoreDefined = managers.Game.ScoreBoard.Score;
-            if (this.scoreDefined >= 20000) {
-                this._gameOver1 = new objects.Label("GAME OVER : YOU WIN " + "\n", "40px", "Consolas", "#ffffff", 320, 140, true);
-            }
-            else {
-                this._gameOver1 = new objects.Label("GAME OVER : YOU LOST " + "\n", "40px", "Consolas", "#ffffff", 320, 140, true);
-            }
-            this._endLabel = new objects.Label("Score: " + this.scoreDefined.toString() + "\n", "40px", "Consolas", "#ffffff", 320, 200, true);
+            this._ocean = new objects.Ocean();
+            this.scoreDefined = managers.Game.Score;
+            this._gameOver = new objects.Label("GAME OVER : YOU WIN " + "\n", "40px", "Consolas", "#ffffff", 320, 140, true);
+            this._gameOver1 = new objects.Label("GAME OVER : YOU LOST " + "\n", "40px", "Consolas", "#ffffff", 320, 140, true);
+            this._endLabel = new objects.Label("High Score: " + this.scoreDefined.toString() + "\n", "40px", "Consolas", "#ffffff", 320, 200, true);
             this._backButton = new objects.Button("Home", 320, 300, true);
             this._play_again = new objects.Button("PlayAgain", 320, 400, true);
             this.Main();
         };
         End.prototype.Update = function () {
-            this._space.Update();
+            this._ocean.Update();
         };
         End.prototype.Reset = function () { };
         End.prototype.Destroy = function () {
@@ -46,13 +39,8 @@ var scenes;
         };
         End.prototype.Main = function () {
             console.log("Starting - END SCENE");
-<<<<<<< HEAD
-            this.addChild(this._space);
-            if (this.scoreDefined == 1700) {
-=======
             this.addChild(this._ocean);
             if (this.scoreDefined == 9000) {
->>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
                 this.addChild(this._gameOver);
             }
             else {

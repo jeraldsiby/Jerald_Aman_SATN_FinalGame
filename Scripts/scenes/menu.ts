@@ -5,7 +5,7 @@ namespace scenes {
     private _level2: objects.Button;
     private _level3: objects.Button;
     private _backButton: objects.Button;
-    private _space: objects.Space;
+    private _ocean: objects.Ocean;
     private _playButton: objects.Button;
 
     // constructors
@@ -19,19 +19,19 @@ namespace scenes {
 
     // public methods
     public Start(): void {
-      this._space = new objects.Space();
+      this._ocean = new objects.Ocean();
 
-      this._level1 = new objects.Button("level1", 170, 270, true);
-      this._level2 = new objects.Button("level2", 300, 270, true);
-      this._level3 = new objects.Button("level3", 430, 270, true);
-      this._backButton = new objects.Button("BackButton", 300, 380, true);
-      this._playButton = new objects.Button("play", 310, 140, true);
+      this._level1 = new objects.Button("level1", 170, 260, true);
+      this._level2 = new objects.Button("level2", 300, 260, true);
+      this._level3 = new objects.Button("level3", 430, 260, true);
+      this._backButton = new objects.Button("BackButton", 300, 350, true);
+      this._playButton = new objects.Button("play", 310, 150, true);
 
       this.Main();
     }
 
     public Update(): void {
-      this._space.Update();
+      this._ocean.Update();
     }
 
     public Reset(): void {}
@@ -42,7 +42,7 @@ namespace scenes {
 
     public Main(): void {
       console.log(`Starting - START SCENE`);
-      this.addChild(this._space);
+      this.addChild(this._ocean);
 
       this.addChild(this._level1);
       this.addChild(this._level2);

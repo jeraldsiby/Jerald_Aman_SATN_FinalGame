@@ -1,10 +1,7 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -25,16 +22,16 @@ var scenes;
         // private methods
         // public methods
         Menu.prototype.Start = function () {
-            this._space = new objects.Space();
-            this._level1 = new objects.Button("level1", 170, 270, true);
-            this._level2 = new objects.Button("level2", 300, 270, true);
-            this._level3 = new objects.Button("level3", 430, 270, true);
-            this._backButton = new objects.Button("BackButton", 300, 380, true);
-            this._playButton = new objects.Button("play", 310, 140, true);
+            this._ocean = new objects.Ocean();
+            this._level1 = new objects.Button("level1", 170, 260, true);
+            this._level2 = new objects.Button("level2", 300, 260, true);
+            this._level3 = new objects.Button("level3", 430, 260, true);
+            this._backButton = new objects.Button("BackButton", 300, 350, true);
+            this._playButton = new objects.Button("play", 310, 150, true);
             this.Main();
         };
         Menu.prototype.Update = function () {
-            this._space.Update();
+            this._ocean.Update();
         };
         Menu.prototype.Reset = function () { };
         Menu.prototype.Destroy = function () {
@@ -42,7 +39,7 @@ var scenes;
         };
         Menu.prototype.Main = function () {
             console.log("Starting - START SCENE");
-            this.addChild(this._space);
+            this.addChild(this._ocean);
             this.addChild(this._level1);
             this.addChild(this._level2);
             this.addChild(this._level3);
