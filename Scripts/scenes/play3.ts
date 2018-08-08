@@ -50,7 +50,7 @@ namespace scenes {
       // creates an empty array of type Cloud
       this._clouds = new Array<objects.Cloud>();
       this.Level = managers.Game.Level;
-      this._cloudNum = 5;
+      this._cloudNum = 7;
 
       this._buildClouds();
 

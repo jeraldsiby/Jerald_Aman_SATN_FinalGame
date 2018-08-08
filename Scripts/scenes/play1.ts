@@ -50,7 +50,7 @@ namespace scenes {
       // creates an empty array of type Cloud
       this._clouds = new Array<objects.Cloud>();
       this.Level = managers.Game.Level;
-      this._cloudNum = 1;
+      this._cloudNum = 2;
 
       this._buildClouds();
 
@@ -76,7 +76,6 @@ namespace scenes {
       this._clouds.forEach(enemy => {
         managers.Collision.checkBulletEnemy(this._bullet, enemy);
       });
-
     }
 
     public Reset(): void {}

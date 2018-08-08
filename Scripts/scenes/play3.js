@@ -1,10 +1,7 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -41,7 +38,7 @@ var scenes;
             // creates an empty array of type Cloud
             this._clouds = new Array();
             this.Level = managers.Game.Level;
-            this._cloudNum = 5;
+            this._cloudNum = 7;
             this._buildClouds();
             this._bullet = new objects.Bullet(this._plane.x, this._plane.y);
             this.Main();

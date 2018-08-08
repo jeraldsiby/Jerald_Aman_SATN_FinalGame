@@ -9,6 +9,7 @@
     var CurrentState;
     var ScoreBoard;
     var keycode;
+    //manifest file to load the resources
     var Manifest = [
         { id: "StartButton", src: "Assets/images/StartButton.png" },
         { id: "NextButton", src: "Assets/images/NextButton.png" },

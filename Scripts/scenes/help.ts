@@ -42,6 +42,9 @@ namespace scenes {
           "4. Difficulty increases as level changes." +
           "\n" +
           "\n" +
+          "Shoot enemy to gain points" +
+          "\n" +
+          "\n" +
           "5. Fight boss in Level 3" +
           "\n" +
           "\n" +
@@ -53,11 +56,11 @@ namespace scenes {
         "Consolas",
         "#ffffff",
         320,
-        180,
+        190,
         true
       );
-      this._backButton = new objects.Button("BackButton", 320, 400, true);
-      this._controls = new objects.Button("controls", 320, 300, true);
+      this._backButton = new objects.Button("BackButton", 320, 430, true);
+      this._controls = new objects.Button("controls", 320, 330, true);
       this.Main();
     }
 

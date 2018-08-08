@@ -69,7 +69,7 @@ namespace scenes {
     public Main(): void {
       console.log(`Starting - END SCENE`);
       this.addChild(this._ocean);
-      if (this.scoreDefined == 1700) {
+      if (this.scoreDefined == 9000) {
         this.addChild(this._gameOver);
       } else {
         this.addChild(this._gameOver1);

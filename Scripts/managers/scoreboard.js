@@ -63,17 +63,17 @@ var managers;
             set: function (newValue) {
                 this._score = newValue;
                 this.ScoreLabel.text = "Score: " + this._score;
-                if (this._score == 500 &&
+                if (this._score == 3000 &&
                     managers.Game.CurrentState == config.Scene.PLAY1) {
                     this.HighScore = this._score;
                     managers.Game.CurrentState = config.Scene.PLAY2;
                 }
-                if (this._score == 1000 &&
+                if (this._score == 6000 &&
                     managers.Game.CurrentState == config.Scene.PLAY2) {
                     this.HighScore = this._score;
                     managers.Game.CurrentState = config.Scene.PLAY3;
                 }
-                if (this._score == 1700 &&
+                if (this._score == 9000 &&
                     managers.Game.CurrentState == config.Scene.PLAY3) {
                     this.HighScore = this._score;
                     managers.Game.CurrentState = config.Scene.END;
