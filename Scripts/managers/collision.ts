@@ -1,19 +1,19 @@
 namespace managers {
   export class Collision {
-
-    public static checkBulletEnemy(bullet: objects.Bullet, enemy: objects.Cloud): void {
+    public static checkBulletEnemy(
+      bullet: objects.Bullet,
+      enemy: objects.Cloud
+    ): void {
       let P1 = new math.Vec2(bullet.x, bullet.y);
       let P2 = new math.Vec2(enemy.x, enemy.y);
 
-      if (
-        math.Vec2.Distance(P1, P2) <
-        bullet.halfHeight + enemy.halfHeight
-      ) {
+      if (math.Vec2.Distance(P1, P2) < bullet.halfHeight + enemy.halfHeight) {
         bullet.y = -10;
         enemy.y = -10;
         managers.Game.ScoreBoard.Score += 100;
+        let yaySound = createjs.Sound.play("yay");
+        yaySound.volume = 0.2;
       }
-
     }
 
     public static check(
