@@ -38,15 +38,18 @@ var scenes;
                 "4. Difficulty increases as level changes." +
                 "\n" +
                 "\n" +
+                "Shoot enemy to gain points" +
+                "\n" +
+                "\n" +
                 "5. Fight boss in Level 3" +
                 "\n" +
                 "\n" +
                 "6. Use keyboard controls as shown below" +
                 "\n" +
                 "\n" +
-                "\n", "20px", "Consolas", "#ffffff", 320, 180, true);
-            this._backButton = new objects.Button("BackButton", 320, 400, true);
-            this._controls = new objects.Button("controls", 320, 300, true);
+                "\n", "20px", "Consolas", "#ffffff", 320, 190, true);
+            this._backButton = new objects.Button("BackButton", 320, 430, true);
+            this._controls = new objects.Button("controls", 320, 330, true);
             this.Main();
         };
         Help.prototype.Update = function () {

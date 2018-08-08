@@ -25,8 +25,14 @@ var scenes;
         // private methods
         // public methods
         Start.prototype.Start = function () {
+<<<<<<< HEAD
             this._space = new objects.Space();
             this._welcomeLabel = new objects.Label("Space Odyssey", "60px", "Limelight", "#ffffff", 320, 200, true);
+=======
+            this._ocean = new objects.Ocean();
+            //welcome label
+            this._welcomeLabel = new objects.Label("Group - SATN", "60px", "Consolas", "#ffffff", 320, 240, true);
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
             this._menuButton = new objects.Button("MainMenu", 240, 340, true);
             this._startButton = new objects.Button("StartButton", 320, 340, true);
             this._helpButton = new objects.Button("HelpButton", 400, 340, true);

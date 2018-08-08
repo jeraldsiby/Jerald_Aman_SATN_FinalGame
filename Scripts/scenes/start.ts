@@ -20,6 +20,7 @@ namespace scenes {
     public Start(): void {
       this._space = new objects.Space();
 
+      //welcome label
       this._welcomeLabel = new objects.Label(
         "Space Odyssey",
         "60px",

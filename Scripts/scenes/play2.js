@@ -40,10 +40,16 @@ var scenes;
             // creates an empty array of type Cloud
             this._enemies = new Array();
             this.Level = managers.Game.Level;
+<<<<<<< HEAD
             this._enemyNum = 3;
             this._buildClouds();
             this._bullet = new objects.Bullet(this._spaceship.x, this._spaceship.y);
             this._bullet2 = new objects.Bullet(this._spaceship.x, this._spaceship.y + 200);
+=======
+            this._cloudNum = 5;
+            this._buildClouds();
+            this._bullet = new objects.Bullet(this._plane.x, this._plane.y);
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
             this.Main();
         };
         Play2.prototype.Update = function () {
@@ -63,6 +69,10 @@ var scenes;
             this._bullet2.UpdateBullet(this._spaceship.x + 5, this._spaceship.y);
             this._enemies.forEach(function (enemy) {
                 managers.Collision.checkBulletEnemy(_this._bullet2, enemy);
+            });
+            this._bullet.UpdateBullet(this._plane.x, this._plane.y);
+            this._clouds.forEach(function (enemy) {
+                managers.Collision.checkBulletEnemy(_this._bullet, enemy);
             });
         };
         Play2.prototype.Reset = function () { };
@@ -86,7 +96,10 @@ var scenes;
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
             this.addChild(this._bullet);
+<<<<<<< HEAD
             this.addChild(this._bullet2);
+=======
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
         };
         return Play2;
     }(objects.Scene));

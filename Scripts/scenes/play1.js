@@ -40,9 +40,15 @@ var scenes;
             // creates an empty array of type Cloud
             this._enemies = new Array();
             this.Level = managers.Game.Level;
+<<<<<<< HEAD
             this._enemyNum = 1;
             this._buildClouds();
             this._bullet = new objects.Bullet(this._spaceship.x, this._spaceship.y);
+=======
+            this._cloudNum = 2;
+            this._buildClouds();
+            this._bullet = new objects.Bullet(this._plane.x, this._plane.y);
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
             this.Main();
         };
         Play1.prototype.Update = function () {
@@ -57,6 +63,10 @@ var scenes;
             });
             this._bullet.UpdateBullet(this._spaceship.x, this._spaceship.y);
             this._enemies.forEach(function (enemy) {
+                managers.Collision.checkBulletEnemy(_this._bullet, enemy);
+            });
+            this._bullet.UpdateBullet(this._plane.x, this._plane.y);
+            this._clouds.forEach(function (enemy) {
                 managers.Collision.checkBulletEnemy(_this._bullet, enemy);
             });
         };

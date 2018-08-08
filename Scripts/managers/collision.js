@@ -6,11 +6,20 @@ var managers;
         Collision.checkBulletEnemy = function (bullet, enemy) {
             var P1 = new math.Vec2(bullet.x, bullet.y);
             var P2 = new math.Vec2(enemy.x, enemy.y);
+<<<<<<< HEAD
             if (math.Vec2.Distance(P1, P2) <
                 bullet.halfHeight + enemy.halfHeight) {
                 bullet.y = -10;
                 enemy.y = -10;
                 managers.Game.ScoreBoard.Score += 100;
+=======
+            if (math.Vec2.Distance(P1, P2) < bullet.halfHeight + enemy.halfHeight) {
+                bullet.y = -10;
+                enemy.y = -10;
+                managers.Game.ScoreBoard.Score += 100;
+                var yaySound = createjs.Sound.play("yay");
+                yaySound.volume = 0.2;
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
             }
         };
         Collision.check = function (object1, object2) {

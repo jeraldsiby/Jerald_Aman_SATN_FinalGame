@@ -41,6 +41,7 @@ var scenes;
             // creates an empty array of type Cloud
             this._enemies = new Array();
             this.Level = managers.Game.Level;
+<<<<<<< HEAD
             this._enemyNum = 5;
             this._buildClouds();
             this._bullet = new objects.Bullet(this._spaceship.x, this._spaceship.y);
@@ -49,6 +50,11 @@ var scenes;
             this._bullet2._horizontalSpeed = 7.5;
             this._bullet3 = new objects.Bullet(this._spaceship.x, this._spaceship.y);
             this._bullet3._horizontalSpeed = -7.5;
+=======
+            this._cloudNum = 7;
+            this._buildClouds();
+            this._bullet = new objects.Bullet(this._plane.x, this._plane.y);
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
             this.Main();
         };
         Play3.prototype.Update = function () {
@@ -73,6 +79,10 @@ var scenes;
             this._enemies.forEach(function (enemy) {
                 managers.Collision.checkBulletEnemy(_this._bullet3, enemy);
             });
+            this._bullet.UpdateBullet(this._plane.x, this._plane.y);
+            this._clouds.forEach(function (enemy) {
+                managers.Collision.checkBulletEnemy(_this._bullet, enemy);
+            });
         };
         Play3.prototype.Reset = function () { };
         Play3.prototype.Destroy = function () {
@@ -95,8 +105,11 @@ var scenes;
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
             this.addChild(this._bullet);
+<<<<<<< HEAD
             this.addChild(this._bullet2);
             this.addChild(this._bullet3);
+=======
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
         };
         return Play3;
     }(objects.Scene));

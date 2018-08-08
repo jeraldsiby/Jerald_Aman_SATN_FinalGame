@@ -9,6 +9,7 @@
     var CurrentState;
     var ScoreBoard;
     var keycode;
+    //manifest file to load the resources
     var Manifest = [
         { id: "StartButton", src: "Assets/images/StartButton.png" },
         { id: "NextButton", src: "Assets/images/NextButton.png" },
@@ -34,7 +35,11 @@
         { id: "yay", src: "Assets/audio/life.wav" },
         { id: "thunder", src: "Assets/audio/explosion.mp3" },
         { id: "bullet", src: "Assets/images/bulletlong.png" },
+<<<<<<< HEAD
         { id: "background", src: "Assets/audio/BloodyTears.mp3" }
+=======
+        { id: "engine", src: "Assets/audio/engine.ogg" }
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
     ];
     function Init() {
         console.log("%c Assets Loading...", "font-weight:bold; font-size:20px; color: green;");

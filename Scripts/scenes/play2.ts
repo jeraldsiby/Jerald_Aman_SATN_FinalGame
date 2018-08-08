@@ -9,7 +9,10 @@ namespace scenes {
     private Level: Number;
     private levelLablel: objects.Label;
     private _bullet: objects.Bullet;
+<<<<<<< HEAD
     private _bullet2: objects.Bullet;
+=======
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
 
     public engineSound: createjs.AbstractSoundInstance;
 
@@ -51,6 +54,7 @@ namespace scenes {
       // creates an empty array of type Cloud
       this._enemies = new Array<objects.Enemy>();
       this.Level = managers.Game.Level;
+<<<<<<< HEAD
       this._enemyNum = 3;
 
       this._buildClouds();
@@ -58,6 +62,13 @@ namespace scenes {
       this._bullet = new objects.Bullet(this._spaceship.x, this._spaceship.y);
       
       this._bullet2 = new objects.Bullet(this._spaceship.x, this._spaceship.y+200);
+=======
+      this._cloudNum = 5;
+
+      this._buildClouds();
+
+      this._bullet = new objects.Bullet(this._plane.x, this._plane.y);
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
 
       this.Main();
     }
@@ -84,6 +95,12 @@ namespace scenes {
 
       this._enemies.forEach(enemy => {
         managers.Collision.checkBulletEnemy(this._bullet2, enemy);
+      });
+
+      this._bullet.UpdateBullet(this._plane.x, this._plane.y);
+
+      this._clouds.forEach(enemy => {
+        managers.Collision.checkBulletEnemy(this._bullet, enemy);
       });
     }
 
@@ -113,7 +130,10 @@ namespace scenes {
       this.addChild(managers.Game.ScoreBoard.LivesLabel);
       this.addChild(managers.Game.ScoreBoard.ScoreLabel);
       this.addChild(this._bullet);
+<<<<<<< HEAD
       this.addChild(this._bullet2);
+=======
+>>>>>>> ab4381f6e53428363102e34602f38a551c70bf6b
     }
   }
 }
