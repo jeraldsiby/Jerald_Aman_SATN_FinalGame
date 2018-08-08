@@ -20,6 +20,7 @@ namespace scenes {
     public Start(): void {
       this._ocean = new objects.Ocean();
 
+      //welcome label
       this._welcomeLabel = new objects.Label(
         "Group - SATN",
         "60px",

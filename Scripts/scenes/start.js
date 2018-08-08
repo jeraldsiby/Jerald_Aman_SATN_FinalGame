@@ -23,6 +23,7 @@ var scenes;
         // public methods
         Start.prototype.Start = function () {
             this._ocean = new objects.Ocean();
+            //welcome label
             this._welcomeLabel = new objects.Label("Group - SATN", "60px", "Consolas", "#ffffff", 320, 240, true);
             this._menuButton = new objects.Button("MainMenu", 240, 340, true);
             this._startButton = new objects.Button("StartButton", 320, 340, true);
