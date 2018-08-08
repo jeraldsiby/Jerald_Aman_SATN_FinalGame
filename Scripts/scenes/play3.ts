@@ -1,13 +1,16 @@
 namespace scenes {
   export class Play3 extends objects.Scene {
     // member variables
-    private _plane: objects.Plane;
-    private _ocean: objects.Ocean;
-    private _island: objects.Island;
-    private _clouds: objects.Cloud[];
-    private _cloudNum: number;
+    private _spaceship: objects.Spaceship;
+    private _space: objects.Space;
+    private _spacestation: objects.SpaceStation;
+    private _enemies: objects.Enemy[];
+    private _enemyNum: number;
     private Level: Number;
     private levelLablel: objects.Label;
+    private _bullet: objects.Bullet;
+    private _bullet2: objects.Bullet;
+    private _bullet3: objects.Bullet;
 
     public engineSound: createjs.AbstractSoundInstance;
 
@@ -20,9 +23,9 @@ namespace scenes {
 
     // private methods
     private _buildClouds(): void {
-      for (let count = 0; count < this._cloudNum; count++) {
-        this._clouds.push(new objects.Cloud());
-        //this._clouds[count] = new objects.Cloud();
+      for (let count = 0; count < this._enemyNum; count++) {
+        this._enemies.push(new objects.Enemy());
+        //this._enemies[count] = new objects.Cloud();
       }
     }
 
@@ -42,30 +45,55 @@ namespace scenes {
       this.engineSound.loop = -1;
       this.engineSound.volume = 0.1;
 
-      this._plane = new objects.Plane();
-      this._ocean = new objects.Ocean();
-      this._island = new objects.Island();
+      this._spaceship = new objects.Spaceship();
+      this._space = new objects.Space();
+      this._spacestation = new objects.SpaceStation();
 
       // creates an empty array of type Cloud
-      this._clouds = new Array<objects.Cloud>();
+      this._enemies = new Array<objects.Enemy>();
       this.Level = managers.Game.Level;
-      this._cloudNum = 5;
+      this._enemyNum = 5;
 
       this._buildClouds();
+
+      this._bullet = new objects.Bullet(this._spaceship.x, this._spaceship.y);
+      this._bullet._horizontalSpeed = 0;
+      this._bullet2 = new objects.Bullet(this._spaceship.x, this._spaceship.y);
+      this._bullet2._horizontalSpeed = 7.5;
+      this._bullet3 = new objects.Bullet(this._spaceship.x, this._spaceship.y);
+      this._bullet3._horizontalSpeed = -7.5;
 
       this.Main();
     }
 
     public Update(): void {
-      this._plane.Update();
-      this._ocean.Update();
-      this._island.Update();
+      this._spaceship.Update();
+      this._space.Update();
+      this._spacestation.Update();
 
-      managers.Collision.check(this._plane, this._island);
+      managers.Collision.check(this._spaceship, this._spacestation);
 
-      this._clouds.forEach(cloud => {
+      this._enemies.forEach(cloud => {
         cloud.Update();
-        managers.Collision.check(this._plane, cloud);
+        managers.Collision.check(this._spaceship, cloud);
+      });
+
+      this._bullet.UpdateBullet(this._spaceship.x, this._spaceship.y);
+
+      this._enemies.forEach(enemy => {
+        managers.Collision.checkBulletEnemy(this._bullet, enemy);
+      });
+
+      this._bullet2.UpdateBullet(this._spaceship.x, this._spaceship.y);
+
+      this._enemies.forEach(enemy => {
+        managers.Collision.checkBulletEnemy(this._bullet2, enemy);
+      });
+
+      this._bullet3.UpdateBullet(this._spaceship.x, this._spaceship.y);
+
+      this._enemies.forEach(enemy => {
+        managers.Collision.checkBulletEnemy(this._bullet3, enemy);
       });
     }
 
@@ -79,21 +107,24 @@ namespace scenes {
       console.log(`Starting - PLAY3 SCENE`);
 
       // adding the ocean to the scene
-      this.addChild(this._ocean);
+      this.addChild(this._space);
 
       // adding the island to the scene
-      this.addChild(this._island);
+      this.addChild(this._spacestation);
 
       // adding the plane to the scene
-      this.addChild(this._plane);
+      this.addChild(this._spaceship);
       // adding the cloud to the scene
-      for (const cloud of this._clouds) {
+      for (const cloud of this._enemies) {
         this.addChild(cloud);
       }
 
       this.addChild(this.levelLablel);
       this.addChild(managers.Game.ScoreBoard.LivesLabel);
       this.addChild(managers.Game.ScoreBoard.ScoreLabel);
+      this.addChild(this._bullet);
+      this.addChild(this._bullet2);
+      this.addChild(this._bullet3);
     }
   }
 }

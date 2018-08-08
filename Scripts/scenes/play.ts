@@ -1,14 +1,14 @@
 namespace scenes {
   export class Play extends objects.Scene {
     // member variables
-    private _plane: objects.Plane;
-    private _ocean: objects.Ocean;
-    private _island: objects.Island;
-    private _clouds: objects.Cloud[];
-    private _cloudNum: number;
+    private _spaceship: objects.Spaceship;
+    private _space: objects.Space;
+    private _spacestation: objects.SpaceStation;
+    private _enemies: objects.Enemy[];
+    private _enemyNum: number;
     private Level: Number;
 
-    public engineSound: createjs.AbstractSoundInstance;
+    public backgroundSound: createjs.AbstractSoundInstance;
 
     // constructors
     constructor() {
@@ -19,31 +19,31 @@ namespace scenes {
 
     // private methods
     private _buildClouds(): void {
-      for (let count = 0; count < this._cloudNum; count++) {
-        this._clouds.push(new objects.Cloud());
-        //this._clouds[count] = new objects.Cloud();
+      for (let count = 0; count < this._enemyNum; count++) {
+        this._enemies.push(new objects.Enemy());
+        //this._enemies[count] = new objects.Cloud();
       }
     }
 
     // public methods
     public Start(): void {
-      this.engineSound = createjs.Sound.play("engine");
-      this.engineSound.loop = -1;
-      this.engineSound.volume = 0.1;
+      this.backgroundSound = createjs.Sound.play("background");
+      this.backgroundSound.loop = -1;
+      this.backgroundSound.volume = 0.1;
 
-      this._plane = new objects.Plane();
-      this._ocean = new objects.Ocean();
-      this._island = new objects.Island();
+      this._spaceship = new objects.Spaceship();
+      this._space = new objects.Space();
+      this._spacestation = new objects.SpaceStation();
 
       // creates an empty array of type Cloud
-      this._clouds = new Array<objects.Cloud>();
+      this._enemies = new Array<objects.Enemy>();
       this.Level = managers.Game.Level;
       if (this.Level == 1) {
-        this._cloudNum = 1;
+        this._enemyNum = 1;
       } else if (this.Level == 2) {
-        this._cloudNum = 3;
+        this._enemyNum = 3;
       } else if (this.Level == 3) {
-        this._cloudNum = 5;
+        this._enemyNum = 5;
       }
 
       this._buildClouds();
@@ -52,15 +52,15 @@ namespace scenes {
     }
 
     public Update(): void {
-      this._plane.Update();
-      this._ocean.Update();
-      this._island.Update();
+      this._spaceship.Update();
+      this._space.Update();
+      this._spacestation.Update();
 
-      managers.Collision.check(this._plane, this._island);
+      managers.Collision.check(this._spaceship, this._spacestation);
 
-      this._clouds.forEach(cloud => {
-        cloud.Update();
-        managers.Collision.check(this._plane, cloud);
+      this._enemies.forEach(enemy => {
+        enemy.Update();
+        managers.Collision.check(this._spaceship, enemy);
       });
     }
 
@@ -74,17 +74,17 @@ namespace scenes {
       console.log(`Starting - PLAY SCENE`);
 
       // adding the ocean to the scene
-      this.addChild(this._ocean);
+      this.addChild(this._space);
 
       // adding the island to the scene
-      this.addChild(this._island);
+      this.addChild(this._spacestation);
 
       // adding the plane to the scene
-      this.addChild(this._plane);
+      this.addChild(this._spaceship);
 
       // adding the cloud to the scene
-      for (const cloud of this._clouds) {
-        this.addChild(cloud);
+      for (const enemy of this._enemies) {
+        this.addChild(enemy);
       }
 
       this.addChild(managers.Game.ScoreBoard.LivesLabel);

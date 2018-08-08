@@ -4,7 +4,7 @@ namespace scenes {
     private _endLabel: objects.Label;
     private _backButton: objects.Button;
     private _play_again: objects.Button;
-    private _ocean: objects.Ocean;
+    private _space: objects.Space;
     private scoreDefined: Number;
     private _gameOver: objects.Label;
     private _gameOver1: objects.Label;
@@ -20,29 +20,34 @@ namespace scenes {
 
     // public methods
     public Start(): void {
-      this._ocean = new objects.Ocean();
+      this._space = new objects.Space();
 
-      this.scoreDefined = managers.Game.Score;
-      this._gameOver = new objects.Label(
-        "GAME OVER : YOU WIN " + "\n",
-        "40px",
-        "Consolas",
-        "#ffffff",
-        320,
-        140,
-        true
-      );
-      this._gameOver1 = new objects.Label(
-        "GAME OVER : YOU LOST " + "\n",
-        "40px",
-        "Consolas",
-        "#ffffff",
-        320,
-        140,
-        true
-      );
+      this.scoreDefined = managers.Game.ScoreBoard.Score;
+      if(this.scoreDefined >= 20000){
+        this._gameOver1 = new objects.Label(
+          "GAME OVER : YOU WIN " + "\n",
+          "40px",
+          "Consolas",
+          "#ffffff",
+          320,
+          140,
+          true
+        );
+      }
+      else{
+        this._gameOver1 = new objects.Label(
+          "GAME OVER : YOU LOST " + "\n",
+          "40px",
+          "Consolas",
+          "#ffffff",
+          320,
+          140,
+          true
+        );
+      }
+
       this._endLabel = new objects.Label(
-        "High Score: " + this.scoreDefined.toString() + "\n",
+        "Score: " + this.scoreDefined.toString() + "\n",
         "40px",
         "Consolas",
         "#ffffff",
@@ -57,7 +62,7 @@ namespace scenes {
     }
 
     public Update(): void {
-      this._ocean.Update();
+      this._space.Update();
     }
 
     public Reset(): void {}
@@ -68,7 +73,7 @@ namespace scenes {
 
     public Main(): void {
       console.log(`Starting - END SCENE`);
-      this.addChild(this._ocean);
+      this.addChild(this._space);
       if (this.scoreDefined == 1700) {
         this.addChild(this._gameOver);
       } else {

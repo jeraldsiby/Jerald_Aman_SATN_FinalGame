@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -22,15 +25,15 @@ var scenes;
         // private methods
         // public methods
         Start.prototype.Start = function () {
-            this._ocean = new objects.Ocean();
-            this._welcomeLabel = new objects.Label("Group - SATN", "60px", "Consolas", "#ffffff", 320, 240, true);
+            this._space = new objects.Space();
+            this._welcomeLabel = new objects.Label("Space Odyssey", "60px", "Limelight", "#ffffff", 320, 200, true);
             this._menuButton = new objects.Button("MainMenu", 240, 340, true);
             this._startButton = new objects.Button("StartButton", 320, 340, true);
             this._helpButton = new objects.Button("HelpButton", 400, 340, true);
             this.Main();
         };
         Start.prototype.Update = function () {
-            this._ocean.Update();
+            this._space.Update();
         };
         Start.prototype.Reset = function () { };
         Start.prototype.Destroy = function () {
@@ -38,7 +41,7 @@ var scenes;
         };
         Start.prototype.Main = function () {
             console.log("Starting - START SCENE");
-            this.addChild(this._ocean);
+            this.addChild(this._space);
             this.addChild(this._welcomeLabel);
             //this.addChild(this._startButton);
             this.addChild(this._helpButton);
